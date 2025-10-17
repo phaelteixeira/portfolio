@@ -32,13 +32,18 @@ a {
   text-decoration: none;
 }
 
-header {
+.header {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
   padding: 0.5rem 1rem;
+}
+
+.header__toggle {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .header__brand .brand__logo {
@@ -79,7 +84,9 @@ header {
 }
 
 .menu__link.active .menu__icon,
-.menu__link.active .menu__text {
+.menu__link.active .menu__text,
+.menu__link:hover .menu__icon,
+.menu__link:hover .menu__text {
   color: var(--primary-color);
   font-weight: 600;
 }
@@ -98,8 +105,32 @@ header {
   text-transform: uppercase;
 }
 
+.header__nav {
+  display: none;
+}
+
+.menu--principal {
+  gap: 1rem;
+}
+
 @media (min-width: 768px) {
-  .menu--mobile {
+  .header {
+    position: fixed;
+    padding: 1rem 6rem;
+    background-color: var(--primary-bg-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .nav--mobile {
     display: none;
+  }
+
+  .header__nav {
+    display: flex;
+  }
+
+  .header__nav,
+  .header__toggle {
+    min-width: 30%;
   }
 }
