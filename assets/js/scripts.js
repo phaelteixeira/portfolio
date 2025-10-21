@@ -1,5 +1,6 @@
 const toggleTheme = document.getElementById("toggleTheme");
 const rootHtml = document.documentElement;
+document.getElementById("ano").textContent = new Date().getFullYear();
 
 function changeTheme() {
   const currentTheme = rootHtml.getAttribute("data-theme");
