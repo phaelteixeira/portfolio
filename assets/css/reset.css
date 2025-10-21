@@ -7,4 +7,6 @@
   list-style: none;
   vertical-align: baseline;
   font-family: "Poppins", sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-bg-color) transparent;
 }

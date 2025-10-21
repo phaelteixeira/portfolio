@@ -1,6 +1,7 @@
 @import url("./reset.css");
 
-.light-theme {
+:root,
+:root[data-theme="light"] {
   --primary-color: #0b0b0f;
   --primary-bg-color: #e9e9e9;
   --secondary-bg-color: #c7c8c9;
@@ -12,7 +13,7 @@
   --img-logo: url("../images/logo-white.png");
 }
 
-.dark-theme {
+:root[data-theme="dark"] {
   --primary-color: #f0f0f0;
   --primary-bg-color: #111217;
   --secondary-bg-color: #28292e;
@@ -24,17 +25,45 @@
   --img-logo: url("../images/logo-dark.png");
 }
 
+html[data-theme="light"] .brand__logo {
+  filter: invert(1);
+}
+
 body {
   background-color: var(--primary-bg-color);
+  color: var(--text-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
 }
 
 a {
   text-decoration: none;
+  color: var(--text-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+p,
+span,
+li {
+  font-size: 1rem;
+}
+
+p {
+  text-align: justify;
 }
 
 .header {
   display: flex;
-  flex-flow: row wrap;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 100vw;
@@ -54,6 +83,8 @@ a {
 #toggleTheme {
   font-size: 1.5rem;
   color: var(--primary-color);
+  cursor: pointer;
+  transition: ease-in-out 0.4s;
 }
 
 .menu {
@@ -74,13 +105,16 @@ a {
   border-top: 1px solid var(--border-color);
 }
 
-.menu--mobile .menu__link {
+.menu__link {
   display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu--mobile .menu__link {
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 0.5rem 1rem;
-  gap: 0.5rem;
 }
 
 .menu__link.active .menu__icon,
@@ -111,11 +145,26 @@ a {
 
 .menu--principal {
   gap: 1rem;
+  width: 30%;
+  padding-left: 2rem;
 }
+
+footer {
+  margin-bottom: 5rem;
+}
+
+footer p {
+  font-size: 0.875rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsividade */
 
 @media (min-width: 768px) {
   .header {
-    position: fixed;
+    /* position: fixed; */
+    display: flex;
     padding: 1rem 6rem;
     background-color: var(--primary-bg-color);
     border-bottom: 1px solid var(--border-color);
@@ -132,5 +181,9 @@ a {
   .header__nav,
   .header__toggle {
     min-width: 30%;
+  }
+
+  footer {
+    margin: 0;
   }
 }
