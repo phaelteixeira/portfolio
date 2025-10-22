@@ -1,5 +1,6 @@
 const toggleTheme = document.getElementById("toggleTheme");
 const rootHtml = document.documentElement;
+const menuLinks = document.querySelectorAll(".menu__link");
 document.getElementById("ano").textContent = new Date().getFullYear();
 
 function changeTheme() {
@@ -12,3 +13,10 @@ function changeTheme() {
 }
 
 toggleTheme.addEventListener("click", changeTheme);
+
+menuLinks.forEach((item) => {
+  item.addEventListener("click", () => {
+    menuLinks.forEach((i) => i.classList.remove("active"));
+    item.classList.add("active");
+  });
+});

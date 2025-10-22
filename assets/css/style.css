@@ -27,6 +27,10 @@ html[data-theme="light"] .brand__logo {
   filter: invert(1);
 }
 
+html[data-theme="light"] .bi-envelope-at {
+  color: var(--title-color);
+}
+
 body {
   background-color: var(--primary-bg-color);
   color: var(--text-color);
@@ -338,6 +342,33 @@ main {
   display: flex;
 }
 
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--secondary-bg-color);
+}
+
+.contact h2 {
+  margin-top: 2rem;
+}
+
+.contact p {
+  padding: 2rem;
+}
+
+.contact .menu--social {
+  background: transparent;
+  padding: 2rem 1rem;
+}
+
+.contact .btn {
+  width: auto;
+  margin-bottom: 4rem;
+}
+
 /* Responsividade */
 
 @media (min-width: 768px) {
@@ -358,7 +389,7 @@ main {
 
   .header__nav,
   .header__toggle {
-    min-width: 30%;
+    min-width: 48%;
   }
 
   .main__content {
